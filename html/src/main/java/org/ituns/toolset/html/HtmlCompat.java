@@ -26,9 +26,9 @@ public class HtmlCompat {
 
     private static Spanned fromHtmlCompat(String html, Html.ImageGetter imageGetter) throws Exception {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY, imageGetter, null);
+            return Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY, imageGetter, new HtmlTagHandler());
         } else {
-            return Html.fromHtml(html, imageGetter, null);
+            return Html.fromHtml(html, imageGetter, new HtmlTagHandler());
         }
     }
 }

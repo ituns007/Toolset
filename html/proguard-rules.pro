@@ -19,3 +19,11 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-dontoptimize
+-keeppackagenames org.ituns.toolset.html
+
+-keep class org.ituns.toolset.html.THtml { public <methods>; }
+-keep class org.ituns.toolset.html.HtmlCompat { public <methods>; }
+
+-keep class org.ituns.toolset.html.R{ *; }
+-keep class org.ituns.toolset.html.R$* { public static <fields>; }
