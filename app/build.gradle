@@ -33,6 +33,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:${APPCOMPAT_VERSION}"
     implementation "androidx.constraintlayout:constraintlayout:${CONSTRAINT_VERSION}"
 
-    implementation project(path: ":html")
-//    implementation "org.ituns.toolset:html:${TOOLSET_HTML_VERSION}"
+//    implementation project(path: ":html")
+    implementation "org.ituns.toolset:html:${TOOLSET_HTML_VERSION}"
+    implementation "org.ituns.toolset:loger:${TOOLSET_LOGER_VERSION}"
 }
