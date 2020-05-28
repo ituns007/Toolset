@@ -3,13 +3,14 @@ package org.ituns.toolset.loger;
 import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
 public class LogerUtils {
-    private static final int STACK_TRACE_INDEX = 5;
+    private static final int STACK_TRACE_INDEX = 4;
 
     public static String buildLogerFilePath(Context context) {
         try {
@@ -48,16 +49,15 @@ public class LogerUtils {
     }
 
     public static String buildTag(String root, String child) {
-        if(TextUtils.isEmpty(child)) {
-            return root;
+        StringBuilder builder = new StringBuilder(root);
+        if(builder.length() > 0 && !TextUtils.isEmpty(child)) {
+            builder.append("#");
         }
-
-        String tag = root + "#" + child;
-        if(tag.length() > 23) {
-            return root;
+        builder.append(child);
+        if(builder.length() > 23) {
+            return builder.substring(0, 23);
         }
-
-        return tag;
+        return builder.toString();
     }
 
     public static String buildMsg(String msg, Throwable throwable, StackTraceElement[] elements) {

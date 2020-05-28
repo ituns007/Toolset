@@ -8,13 +8,13 @@ public class ConsoleLoger extends BaseLoger {
     private static final int LOG_BUFFER_LENGTH = 4000;
 
     @Override
-    public void log(int priority, String tag, String msg) {
+    public void log(Priority priority, String tag, String msg) {
         if(tag == null || msg == null) {
             return;
         }
 
         try {
-            printLog(priority, tag, msg);
+            printLog(priority.value(), tag, msg);
         } catch (Exception e) {}
     }
 

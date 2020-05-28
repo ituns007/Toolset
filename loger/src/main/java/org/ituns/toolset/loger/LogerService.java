@@ -26,7 +26,7 @@ public class LogerService {
         mStorageLoger = new StorageLoger(context);
     }
 
-    public void log(boolean debug, int priority, String tag, String msg) {
+    public void log(boolean debug, Priority priority, String tag, String msg) {
         if(debug) {
             mConsoleLoger.log(priority, tag, msg);
         } else {

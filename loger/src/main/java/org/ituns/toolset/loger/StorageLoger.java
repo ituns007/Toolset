@@ -24,8 +24,8 @@ public class StorageLoger extends BaseLoger {
     }
 
     @Override
-    public void log(int priority, String tag, String msg) {
-        String content = buildLogContent(priority, tag, msg);
+    public void log(Priority priority, String tag, String msg) {
+        String content = buildLogContent(priority.value(), tag, msg);
         writeLogToFile(mFilePath, content);
     }
 

@@ -22,6 +22,7 @@
 -dontoptimize
 -keeppackagenames org.ituns.toolset.loger
 
+-keep class org.ituns.toolset.loger.Priority { *; }
 -keep class org.ituns.toolset.loger.LogerProxy { public static <methods>; }
 -keep class org.ituns.toolset.loger.LogerClient { public <methods>; }
 
