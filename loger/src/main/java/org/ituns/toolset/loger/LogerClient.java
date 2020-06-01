@@ -5,12 +5,14 @@ import org.ituns.system.concurrent.BackTask;
 public class LogerClient {
     private String mTag;
     private boolean isDebug;
+    private boolean isRelease;
     private Priority mPriority;
     private final BackTask mBackTask;
 
     public LogerClient(String tag) {
         mTag = tag;
         isDebug = true;
+        isRelease = false;
         mPriority = Priority.VERBOSE;
         mBackTask = new BackTask();
     }
@@ -80,7 +82,7 @@ public class LogerClient {
     }
 
     private void log(Priority priority, String tag, String msg, Throwable throwable) {
-        if(priority == Priority.NONE || priority.value() < mPriority.value()) {
+        if(isRelease || priority == Priority.NONE || priority.value() < mPriority.value()) {
             return;
         }
 
@@ -95,6 +97,7 @@ public class LogerClient {
     }
 
     public void release() {
+        isRelease = true;
         mBackTask.release();
     }
 }
