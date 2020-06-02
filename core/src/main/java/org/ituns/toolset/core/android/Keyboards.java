@@ -11,7 +11,7 @@ import java.lang.reflect.Field;
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static android.view.inputmethod.InputMethodManager.SHOW_FORCED;
 
-public class KeyboardUtils {
+public class Keyboards {
 
     public static boolean isShowing(Context context) {
         Object service = context.getSystemService(INPUT_METHOD_SERVICE);

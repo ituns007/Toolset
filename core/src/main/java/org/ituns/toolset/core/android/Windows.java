@@ -3,7 +3,7 @@ package org.ituns.toolset.core.android;
 import android.content.Context;
 import android.content.res.Resources;
 
-public class WindowUtils {
+public class Windows {
 
     public static float width(Context context) {
         Resources resources = context.getResources();
