@@ -5,15 +5,14 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 
+import org.ituns.system.concurrent.AsyncTask;
+
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class DrawableTaskManager implements DrawableTask.Callback {
     private static DrawableTaskManager mInstance;
 
     private TaskHandler taskHandler;
-    private ExecutorService executorService;
     private ConcurrentHashMap<String, Callback> concurrentHashMap;
 
     public static DrawableTaskManager getInstance() {
@@ -29,7 +28,6 @@ public class DrawableTaskManager implements DrawableTask.Callback {
 
     private DrawableTaskManager() {
         concurrentHashMap = new ConcurrentHashMap<>();
-        executorService = Executors.newCachedThreadPool();
         taskHandler = new TaskHandler(Looper.getMainLooper());
     }
 
@@ -43,7 +41,7 @@ public class DrawableTaskManager implements DrawableTask.Callback {
         }
 
         concurrentHashMap.put(source, callback);
-        executorService.execute(new DrawableTask(source, this));
+        AsyncTask.execute(new DrawableTask(source, this));
     }
 
     @Override

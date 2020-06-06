@@ -3,7 +3,6 @@ package org.ituns.toolset.loger;
 import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -49,11 +48,14 @@ public class LogerUtils {
     }
 
     public static String buildTag(String root, String child) {
-        StringBuilder builder = new StringBuilder(root);
-        if(builder.length() > 0 && !TextUtils.isEmpty(child)) {
-            builder.append("#");
+        StringBuilder builder = new StringBuilder();
+        if(TextUtils.isEmpty(root) || TextUtils.isEmpty(child)) {
+           root = root == null ? "" : root;
+           child = child == null ? "" : child;
+           builder.append(root).append(child);
+        } else {
+            builder.append(root).append("#").append(child);
         }
-        builder.append(child);
         if(builder.length() > 23) {
             return builder.substring(0, 23);
         }

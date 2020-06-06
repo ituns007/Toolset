@@ -1,8 +1,13 @@
 package org.ituns.toolset.html.drawable;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.net.http.HttpResponseCache;
 import android.util.LruCache;
 
+import org.ituns.system.provider.iTunsProvider;
+
+import java.io.File;
 import java.util.LinkedList;
 
 public class DrawableCreator {
@@ -14,15 +19,26 @@ public class DrawableCreator {
         if(mInstance == null) {
             synchronized (DrawableCreator.class) {
                 if(mInstance == null) {
-                    mInstance = new DrawableCreator();
+                    mInstance = new DrawableCreator(iTunsProvider.applicationContext);
                 }
             }
         }
         return mInstance;
     }
 
-    private DrawableCreator() {
+    private DrawableCreator(Context context) {
         mDrawableCache = new LruCache<>(4 * 1024 * 1024);
+        initializeNetworkCache(context);
+    }
+
+    private void initializeNetworkCache(Context context) {
+        if(HttpResponseCache.getInstalled() == null) {
+            try {
+                File httpCacheDir = new File(context.getCacheDir(), "ituns");
+                long httpCacheSize = 10 * 1024 * 1024; // 10 MiB
+                HttpResponseCache.install(httpCacheDir, httpCacheSize);
+            } catch (Exception e) {}
+        }
     }
 
     public void create(String source, Callback callback) {

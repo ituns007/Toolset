@@ -28,4 +28,7 @@ dependencies {
     testImplementation "junit:junit:${JUNIT_VERSION}"
     androidTestImplementation "androidx.test:runner:${RUNNER_VERSION}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${ESPRESSO_VERSION}"
+
+    api "org.ituns.system:provider:${SYSTEM_PROVIDER_VERSION}"
+    api "org.ituns.system:concurrent:${SYSTEM_CONCURRENT_VERSION}"
 }
