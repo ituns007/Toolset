@@ -36,6 +36,6 @@ dependencies {
 //    implementation project(path: ":html")
     implementation "org.ituns.toolset:html:${TOOLSET_HTML_VERSION}"
 
-//    implementation project(path: ":loger")
-    implementation "org.ituns.toolset:loger:${TOOLSET_LOGER_VERSION}"
+    implementation project(path: ":loger")
+//    implementation "org.ituns.toolset:loger:${TOOLSET_LOGER_VERSION}"
 }

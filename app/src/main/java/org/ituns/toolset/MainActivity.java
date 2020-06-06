@@ -12,9 +12,9 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import org.ituns.toolset.html.HtmlCompat;
 import org.ituns.toolset.loger.LogerClient;
 import org.ituns.toolset.loger.LogerProxy;
+import org.ituns.toolset.loger.Priority;
 
 import java.util.List;
 
@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         mTextView = findViewById(R.id.textview);
 
         logerClient = new LogerClient("Loger");
+        logerClient.setDebug(true);
+        logerClient.setPriority(Priority.VERBOSE);
     }
 
     @Override
@@ -58,11 +60,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickTestHtml(View view) {
-        mTextView.setText(HtmlCompat.fromHtml("<font color=\"#1A73E8\">No more results, something similiar</font>"));
+//        mTextView.setText(HtmlCompat.fromHtml("<font color=\"#1A73E8\">No more results, something similiar</font>"));
+        logcat("clickTestHtml", 0);
     }
 
     public void clickTestLoger(View view) {
-        LogerProxy.e("wangxiulong", "LogerProxy");
-        logerClient.e("wangxiulong", "LogerClient");
+//        LogerProxy.e("wangxiulong", "LogerProxy");
+//        logerClient.d("wangxiulong", "LogerClient");
+//        logerClient.print(Priority.ERROR, "", "LogerClient1", null);
+        logcat("clickTestHtml", 1);
+    }
+
+    private void logcat(String msg, int stackDepth) {
+//        LogerProxy.print(Priority.ERROR, "wangxiulong", msg, null, stackDepth);
+        logerClient.print(Priority.ERROR, "wangxiulong", msg, null, stackDepth);
     }
 }

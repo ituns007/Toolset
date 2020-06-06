@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import static org.ituns.toolset.loger.LogerService.TAG;
+
 public class StorageLoger extends BaseLoger {
     private static final String FORMAT = "MM-dd HH:mm:ss.SSS";
 
@@ -73,8 +75,8 @@ public class StorageLoger extends BaseLoger {
             }
             writer = new FileWriter(file, true);
             writer.write(content);
-        } catch (Exception e) {
         } catch (Throwable throwable) {
+            Log.i(TAG, "StorageLoger.writeLogToFile", throwable);
         } finally {
             try {
                 writer.close();

@@ -5,18 +5,16 @@ import android.content.Context;
 import org.ituns.system.provider.iTunsProvider;
 
 public class LogerService {
+    public static final String TAG = "Loger";
+
     private static LogerService mInstance;
 
     private final ConsoleLoger mConsoleLoger;
     private final StorageLoger mStorageLoger;
 
-    public static LogerService instance() {
+    public synchronized static LogerService instance() {
         if(mInstance == null) {
-            synchronized (LogerService.class) {
-                if(mInstance == null) {
-                    mInstance = new LogerService(iTunsProvider.applicationContext);
-                }
-            }
+            mInstance = new LogerService(iTunsProvider.applicationContext);
         }
         return mInstance;
     }

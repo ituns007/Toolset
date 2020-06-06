@@ -3,10 +3,13 @@ package org.ituns.toolset.loger;
 import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+
+import static org.ituns.toolset.loger.LogerService.TAG;
 
 public class LogerUtils {
     private static final int STACK_TRACE_INDEX = 4;
@@ -31,7 +34,7 @@ public class LogerUtils {
             builder.append("ituns.log");
             return builder.toString();
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e(TAG, "LogerUtils.buildLogerFilePath", e);
             return "";
         }
     }
@@ -44,7 +47,9 @@ public class LogerUtils {
     public static void clearLogerFile(String filepath) {
         try {
             new File(filepath).delete();
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            Log.i(TAG, "LogerUtils.clearLogerFile", e);
+        }
     }
 
     public static String buildTag(String root, String child) {
@@ -62,12 +67,15 @@ public class LogerUtils {
         return builder.toString();
     }
 
-    public static String buildMsg(String msg, Throwable throwable, StackTraceElement[] elements) {
-        StringBuilder builder = new StringBuilder();
+    public static String buildMsg(String msg, Throwable throwable, int stackDepth, StackTraceElement[] elements) {
+        for(StackTraceElement element : elements) {
+            Log.e("wangxiulong", element.getFileName() + "." + element.getMethodName());
+        }
 
         //build call stack infomation
-        if(elements != null && elements.length > STACK_TRACE_INDEX) {
-            StackTraceElement element = elements[STACK_TRACE_INDEX];
+        StringBuilder builder = new StringBuilder();
+        if(elements != null && stackDepth < elements.length) {
+            StackTraceElement element = elements[stackDepth];
             builder.append("(");
             builder.append(element.getFileName());
             builder.append(":");
