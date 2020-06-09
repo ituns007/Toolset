@@ -68,10 +68,6 @@ public class LogerUtils {
     }
 
     public static String buildMsg(String msg, Throwable throwable, int stackDepth, StackTraceElement[] elements) {
-        for(StackTraceElement element : elements) {
-            Log.e("wangxiulong", element.getFileName() + "." + element.getMethodName());
-        }
-
         //build call stack infomation
         StringBuilder builder = new StringBuilder();
         if(elements != null && stackDepth < elements.length) {
