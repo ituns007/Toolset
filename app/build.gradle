@@ -19,8 +19,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -33,9 +33,5 @@ dependencies {
     implementation "androidx.appcompat:appcompat:${APPCOMPAT_VERSION}"
     implementation "androidx.constraintlayout:constraintlayout:${CONSTRAINT_VERSION}"
 
-//    implementation project(path: ":html")
-    implementation "org.ituns.toolset:html:${TOOLSET_HTML_VERSION}"
-
-    implementation project(path: ":loger")
-//    implementation "org.ituns.toolset:loger:${TOOLSET_LOGER_VERSION}"
+    implementation "org.ituns.android:toolset:${ANDROID_TOOLSET_VERSION}"
 }

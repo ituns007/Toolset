@@ -1,5 +1,3 @@
 rootProject.name='Toolset'
 include ':app'
-include ':core'
-include ':html'
-include ':loger'
+include ':toolset'
