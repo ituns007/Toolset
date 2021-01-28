@@ -30,4 +30,5 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:${ESPRESSO_VERSION}"
 
     api "androidx.appcompat:appcompat:${APPCOMPAT_VERSION}"
+    api "androidx.recyclerview:recyclerview:${RECYCLER_VERSION}"
 }
