@@ -33,5 +33,6 @@ dependencies {
     implementation "androidx.appcompat:appcompat:${APPCOMPAT_VERSION}"
     implementation "androidx.constraintlayout:constraintlayout:${CONSTRAINT_VERSION}"
 
+//    implementation project(":toolset")
     implementation "org.ituns.android:toolset:${ANDROID_TOOLSET_VERSION}"
 }

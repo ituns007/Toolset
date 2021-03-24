@@ -16,8 +16,6 @@ import org.ituns.android.toolset.android.content.DeepLink;
 
 import java.util.List;
 
-import static android.content.pm.PackageManager.MATCH_DEFAULT_ONLY;
-
 public class MainActivity extends AppCompatActivity {
     private AppCompatTextView mTextView;
 
@@ -34,17 +32,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickTestCore(View view) {
+        searchByDeepLink();
+    }
+
+    private void searchByNative() {
         Uri uri = Uri.parse("http://www.baidu.com/");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 
         PackageManager packageManager = this.getPackageManager();
-        List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(intent, MATCH_DEFAULT_ONLY);
+        List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(intent, PackageManager.MATCH_ALL);
         for(ResolveInfo info : resolveInfos) {
             ActivityInfo activityInfo = info.activityInfo;
             if(activityInfo == null) {
                 continue;
             }
 
+            Log.e("wangxiulong", activityInfo.packageName + "-" + activityInfo.name + " exported:" + activityInfo.exported + " enabled:" + activityInfo.enabled);
+        }
+    }
+
+    private void searchByDeepLink() {
+        Uri uri = Uri.parse("http://www.baidu.com/");
+        List<ActivityInfo> activityInfos = DeepLink.activityInfos(this, uri);
+        for(ActivityInfo activityInfo : activityInfos) {
+            if(activityInfo == null) {
+                continue;
+            }
             Log.e("wangxiulong", activityInfo.packageName + "-" + activityInfo.name + " exported:" + activityInfo.exported + " enabled:" + activityInfo.enabled);
         }
     }

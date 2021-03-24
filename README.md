@@ -14,6 +14,6 @@ allprojects {
 2.在模块 build.gradle 中添加引用：
 ```
 dependencies {
-    implementation "org.ituns.android:toolset:1.0.0"
+    implementation "org.ituns.android:toolset:1.0.1"
 }
 ```

@@ -11,7 +11,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.content.pm.PackageManager.MATCH_DEFAULT_ONLY;
+import static android.content.pm.PackageManager.MATCH_ALL;
 
 public class DeepLink {
     private static final String TAG = "DeepLink";
@@ -72,7 +72,7 @@ public class DeepLink {
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             ArrayList<ActivityInfo> activityInfos = new ArrayList<>();
             PackageManager packageManager = context.getPackageManager();
-            List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(intent, MATCH_DEFAULT_ONLY);
+            List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(intent, MATCH_ALL);
             for(ResolveInfo info : resolveInfos) {
                 ActivityInfo activityInfo = info.activityInfo;
                 if(activityInfo == null) {
