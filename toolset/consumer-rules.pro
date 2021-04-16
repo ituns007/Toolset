@@ -1,0 +1,9 @@
+-keep class androidx.lifecycle.LiveData { *; }
+-keep class androidx.lifecycle.Observer { *; }
+-keep class androidx.lifecycle.LifecycleOwner { *; }
+-keep class androidx.lifecycle.LiveData$ObserverWrapper { *; }
+-keep class androidx.lifecycle.LiveData$AlwaysActiveObserver { *; }
+-keep class androidx.lifecycle.LiveData$LifecycleBoundObserver { *; }
+-keep class androidx.arch.core.internal.SafeIterableMap { *; }
+-keep class androidx.arch.core.internal.SafeIterableMap$SupportRemove { *; }
+-keep class androidx.arch.core.internal.SafeIterableMap$IteratorWithAdditions { *; }

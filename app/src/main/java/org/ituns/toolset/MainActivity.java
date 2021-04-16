@@ -13,11 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import org.ituns.android.toolset.android.content.DeepLink;
+import org.ituns.android.toolset.android.lifecycle.AlignLiveData;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private AppCompatTextView mTextView;
+
+    private AlignLiveData<String> liveData = new AlignLiveData<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickTestCore(View view) {
-        searchByDeepLink();
+        liveData.postValue("test");
     }
 
     private void searchByNative() {
