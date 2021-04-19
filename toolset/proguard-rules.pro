@@ -22,6 +22,8 @@
 -dontoptimize
 -keeppackagenames org.ituns.android.toolset
 
+-keep class org.ituns.android.toolset.** { *; }
+
 -keep class androidx.lifecycle.LiveData { *; }
 -keep class androidx.lifecycle.Observer { *; }
 -keep class androidx.lifecycle.LifecycleOwner { *; }
@@ -31,7 +33,6 @@
 -keep class androidx.arch.core.internal.SafeIterableMap { *; }
 -keep class androidx.arch.core.internal.SafeIterableMap$SupportRemove { *; }
 -keep class androidx.arch.core.internal.SafeIterableMap$IteratorWithAdditions { *; }
--keep class org.ituns.android.toolset.** { *; }
 
 -keep class org.ituns.android.toolset.R{ *; }
 -keep class org.ituns.android.toolset.R$* { public static <fields>; }
