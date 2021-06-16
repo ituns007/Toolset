@@ -1,4 +1,4 @@
-package org.ituns.android.toolset.android.recyclerview;
+package org.ituns.android.toolset.android;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,8 +9,6 @@ import android.view.View;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.ituns.android.toolset.android.view.IScreen;
 
 public class Decoration extends RecyclerView.ItemDecoration  {
     private int mHeight = 1;

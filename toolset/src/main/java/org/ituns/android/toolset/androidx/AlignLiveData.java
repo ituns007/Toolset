@@ -1,4 +1,4 @@
-package org.ituns.android.toolset.android.lifecycle;
+package org.ituns.android.toolset.androidx;
 
 import android.util.Log;
 

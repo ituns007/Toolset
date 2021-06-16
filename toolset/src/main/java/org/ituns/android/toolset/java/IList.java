@@ -1,4 +1,4 @@
-package org.ituns.android.toolset.java.util;
+package org.ituns.android.toolset.java;
 
 import java.util.List;
 

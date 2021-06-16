@@ -1,4 +1,4 @@
-package org.ituns.android.toolset.android.provider;
+package org.ituns.android.toolset.android;
 
 import android.content.ContentResolver;
 import android.content.Context;

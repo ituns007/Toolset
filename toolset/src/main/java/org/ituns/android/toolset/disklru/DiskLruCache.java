@@ -1,4 +1,4 @@
-package org.ituns.android.toolset.java.io.disk;
+package org.ituns.android.toolset.disklru;
 
 /*
  * Copyright (C) 2011 The Android Open Source Project

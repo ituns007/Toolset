@@ -1,4 +1,4 @@
-package org.ituns.android.toolset.android.content;
+package org.ituns.android.toolset.android;
 
 import android.content.Context;
 import android.net.Uri;

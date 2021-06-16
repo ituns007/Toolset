@@ -1,4 +1,4 @@
-package org.ituns.android.toolset.java.lang;
+package org.ituns.android.toolset.java;
 
 public class IClass {
 

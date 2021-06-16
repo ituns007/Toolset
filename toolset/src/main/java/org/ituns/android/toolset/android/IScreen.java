@@ -1,4 +1,4 @@
-package org.ituns.android.toolset.android.view;
+package org.ituns.android.toolset.android;
 
 import android.content.Context;
 import android.content.res.Resources;

@@ -1,4 +1,4 @@
-package org.ituns.android.toolset.android.listview;
+package org.ituns.android.toolset.android;
 
 import android.util.SparseArray;
 import android.view.View;

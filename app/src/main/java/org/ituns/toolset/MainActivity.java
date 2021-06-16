@@ -12,8 +12,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import org.ituns.android.toolset.android.content.DeepLink;
-import org.ituns.android.toolset.android.lifecycle.AlignLiveData;
+import org.ituns.android.toolset.android.DeepLink;
+import org.ituns.android.toolset.androidx.AlignLiveData;
 
 import java.util.List;
 

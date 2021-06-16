@@ -1,4 +1,4 @@
-package org.ituns.android.toolset.android.view;
+package org.ituns.android.toolset.android;
 
 import android.app.Activity;
 import android.content.Context;
@@ -31,6 +31,18 @@ public class IKeyboard {
 
     public static void hide(Activity activity) {
         View view = activity.getCurrentFocus();
+        if(view == null) {
+            return;
+        }
+
+        Object service = activity.getSystemService(INPUT_METHOD_SERVICE);
+        if(service instanceof InputMethodManager) {
+            view.clearFocus();
+            ((InputMethodManager) service).hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    public static void hide(Activity activity, View view) {
         if(view == null) {
             return;
         }
